@@ -37,24 +37,23 @@
       background-attachment: fixed, fixed;
     }
 
-    /* ── Layout ── */
     .container {
-      max-width: 780px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
     }
 
-    /* ── Nav ── */
+    /* Nav */
     nav {
       border-bottom: 1px solid var(--border);
       padding: 18px 0;
       position: sticky;
       top: 0;
       backdrop-filter: blur(20px);
-      background: rgba(8,10,15,0.85);
+      background: rgba(8,10,15,0.88);
       z-index: 100;
     }
-    nav .container {
+    nav .inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,11 +66,10 @@
       text-decoration: none;
       letter-spacing: -0.3px;
     }
-    nav .logo span { color: var(--muted); }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 28px;
+      gap: 24px;
     }
     nav ul a {
       color: var(--muted);
@@ -82,10 +80,8 @@
     }
     nav ul a:hover { color: var(--text); }
 
-    /* ── Hero ── */
-    .hero {
-      padding: 96px 0 80px;
-    }
+    /* Hero */
+    .hero { padding: 88px 0 72px; }
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -98,263 +94,189 @@
       font-size: 12px;
       color: var(--accent);
       margin-bottom: 28px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
     .hero-tag .dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       background: var(--green);
       border-radius: 50%;
       animation: pulse 2s infinite;
+      flex-shrink: 0;
     }
     @keyframes pulse {
       0%,100% { opacity:1; }
       50% { opacity:0.4; }
     }
     .hero h1 {
-      font-size: clamp(42px, 8vw, 68px);
+      font-size: clamp(40px, 8vw, 72px);
       font-weight: 800;
       letter-spacing: -2.5px;
-      line-height: 1.05;
+      line-height: 1.0;
       margin-bottom: 10px;
     }
     .hero h1 .name { color: var(--text); }
     .hero h1 .handle {
       color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.12);
     }
     .hero-subtitle {
-      font-size: clamp(18px, 3vw, 22px);
+      font-size: clamp(16px, 2.5vw, 20px);
       color: var(--muted);
       font-weight: 400;
-      margin-bottom: 32px;
-      max-width: 520px;
+      margin: 20px 0 32px;
+      max-width: 560px;
+      line-height: 1.7;
     }
-    .hero-subtitle strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .hero-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .hero-subtitle strong { color: var(--text); font-weight: 600; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #020c10;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 12px 22px;
-      border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #020c10;
+      font-weight: 700; font-size: 14px;
+      padding: 12px 22px; border-radius: 10px;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.15s;
     }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary svg { width: 14px; height: 14px; flex-shrink: 0; }
+
     .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 14px;
-      padding: 12px 22px;
-      border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      font-weight: 600; font-size: 14px;
+      padding: 12px 22px; border-radius: 10px;
       border: 1px solid var(--border);
       text-decoration: none;
       transition: border-color 0.2s, transform 0.15s;
     }
     .btn-secondary:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
+    .btn-secondary svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-    /* ── Section ── */
-    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    /* Section */
+    section { padding: 60px 0; border-top: 1px solid var(--border); }
     .section-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      font-size: 11px; font-weight: 700;
+      color: var(--accent); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 12px;
     }
     .section-title {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 700;
-      letter-spacing: -0.8px;
-      margin-bottom: 8px;
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 700; letter-spacing: -0.6px; margin-bottom: 8px;
     }
     .section-desc {
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 540px;
-      margin-bottom: 40px;
-      line-height: 1.7;
+      color: var(--muted); font-size: 15px;
+      max-width: 580px; margin-bottom: 36px; line-height: 1.7;
     }
 
-    /* ── Building ── */
+    /* Build grid */
     .build-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
     }
     .build-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       transition: border-color 0.2s, transform 0.15s;
     }
     .build-card:hover { border-color: rgba(255,255,255,0.14); transform: translateY(-2px); }
     .build-card-icon {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-    .build-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-    .build-card p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .build-card .tag {
-      display: inline-block;
-      margin-top: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 5px;
+      width: 36px; height: 36px;
       background: rgba(34,211,238,0.08);
-      color: var(--accent);
-      border: 1px solid rgba(34,211,238,0.15);
+      border: 1px solid rgba(34,211,238,0.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .build-card-icon svg { width: 18px; height: 18px; color: var(--accent); }
+    .build-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+    .build-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .build-card .tag {
+      display: inline-block; margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      padding: 3px 8px; border-radius: 5px;
+      background: rgba(34,211,238,0.07); color: var(--accent);
+      border: 1px solid rgba(34,211,238,0.13);
     }
 
-    /* ── Experience ── */
-    .exp-list { display: flex; flex-direction: column; gap: 12px; }
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; gap: 10px; }
     .exp-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px;
       transition: border-color 0.2s;
     }
     .exp-item:hover { border-color: rgba(255,255,255,0.14); }
     .exp-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
     }
+    .exp-badge svg { width: 18px; height: 18px; color: var(--muted); }
     .exp-info h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
     .exp-info p { font-size: 13px; color: var(--muted); }
     .exp-years {
       margin-left: auto;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
+      font-size: 11px; color: var(--muted); white-space: nowrap;
     }
 
-    /* ── Featured Project ── */
+    /* Project card */
     .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 36px;
-      position: relative;
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 32px;
+      position: relative; overflow: hidden;
     }
     .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
     }
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      gap: 16px;
-    }
     .project-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(167,139,250,0.1);
-      border: 1px solid rgba(167,139,250,0.25);
-      border-radius: 7px;
-      padding: 4px 10px;
-      font-size: 11px;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--accent2);
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 7px; padding: 4px 10px;
+      font-size: 11px; font-family: 'JetBrains Mono', monospace;
+      color: var(--green); margin-bottom: 16px;
     }
+    .project-badge svg { width: 8px; height: 8px; fill: var(--green); }
     .project-card h3 {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px;
     }
     .project-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      max-width: 520px;
+      color: var(--muted); font-size: 14px; line-height: 1.75;
+      margin-bottom: 22px; max-width: 560px;
     }
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
     .tech-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      padding: 4px 10px; border-radius: 6px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text);
     }
 
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
-    }
-    footer p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-    footer a {
-      color: var(--text);
-      text-decoration: none;
-    }
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; }
+    footer p { color: var(--muted); font-size: 13px; }
+    footer a { color: var(--text); text-decoration: none; }
     footer a:hover { color: var(--accent); }
+    footer .sep { color: var(--border); margin: 0 10px; }
 
-    @media (max-width: 560px) {
-      .hero { padding: 64px 0 52px; }
-      .project-header { flex-direction: column; }
-      nav ul { gap: 16px; }
-      .exp-item { flex-wrap: wrap; }
+    /* Mobile */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .hero { padding: 60px 0 48px; }
+      nav ul { gap: 14px; }
+      nav ul li:nth-child(n+3) { display: none; }
+      .exp-item { gap: 12px; }
+      .exp-years { display: none; }
+      .project-card { padding: 22px; }
     }
   </style>
 </head>
@@ -362,20 +284,21 @@
 
   <nav>
     <div class="container">
-      <a href="#" class="logo">codes<span>-</span>son</a>
-      <ul>
-        <li><a href="#building">Building</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="https://github.com/codes-son" target="_blank">GitHub</a></li>
-      </ul>
+      <div class="inner">
+        <a href="#" class="logo">codes-son</a>
+        <ul>
+          <li><a href="#building">Building</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="https://github.com/codes-son" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <main>
     <div class="container">
 
-      <!-- Hero -->
       <div class="hero">
         <div class="hero-tag">
           <span class="dot"></span>
@@ -386,70 +309,100 @@
           <div class="handle">@codes-son</div>
         </h1>
         <p class="hero-subtitle">
-          <strong>Builder</strong> — shipping blockchain tools, developer utilities,<br/>
-          and the occasional piece of beautiful nonsense.
+          <strong>Builder.</strong> Shipping blockchain tools, developer utilities, and the occasional piece of beautiful nonsense.
         </p>
         <div class="hero-cta">
           <a href="https://codes-son.github.io/gitslop/" class="btn-primary" target="_blank">
-            ▶ See GitSlop
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5,3 13,8 5,13" fill="currentColor" stroke="none"/>
+            </svg>
+            See GitSlop
           </a>
           <a href="https://github.com/codes-son" class="btn-secondary" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
             github.com/codes-son
           </a>
         </div>
       </div>
 
-      <!-- Building -->
       <section id="building">
         <div class="section-label">// what I build</div>
-        <h2 class="section-title">Blockchain tools &amp; developer experiences</h2>
+        <h2 class="section-title">Blockchain tools and developer experiences</h2>
         <p class="section-desc">
-          I build things at the intersection of blockchain infrastructure, developer tooling, and automation. If it can be scripted, it will be scripted.
+          Building at the intersection of blockchain infrastructure, developer tooling, and automation. If it can be scripted, it will be scripted.
         </p>
         <div class="build-grid">
           <div class="build-card">
-            <div class="build-card-icon">⛓️</div>
+            <div class="build-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
             <h3>Blockchain Tools</h3>
             <p>On-chain utilities, smart contract tooling, and DeFi automation scripts that do one thing well.</p>
             <span class="tag">solidity · web3.js · ethers</span>
           </div>
           <div class="build-card">
-            <div class="build-card-icon">🤖</div>
+            <div class="build-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/><path d="M8 15h.01M12 15h.01M16 15h.01"/>
+              </svg>
+            </div>
             <h3>Developer Bots</h3>
             <p>GitHub Apps, automation pipelines, and bots that plug into developer workflows and make life easier.</p>
             <span class="tag">github apps · webhooks</span>
           </div>
           <div class="build-card">
-            <div class="build-card-icon">🧰</div>
+            <div class="build-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
             <h3>Dev Utilities</h3>
             <p>APIs, CLI tools, and small-but-sharp utilities for the developer's day-to-day toolkit.</p>
             <span class="tag">node · typescript · postgres</span>
           </div>
           <div class="build-card">
-            <div class="build-card-icon">✨</div>
+            <div class="build-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
             <h3>AI-Powered Stuff</h3>
-            <p>Experiments fusing LLMs with practical developer workflows — from code review to meme generation.</p>
+            <p>Experiments fusing LLMs with practical developer workflows, from code review to meme generation.</p>
             <span class="tag">claude · openai · runway</span>
           </div>
         </div>
       </section>
 
-      <!-- Experience -->
       <section id="experience">
-        <div class="section-label">// stack &amp; experience</div>
+        <div class="section-label">// stack and experience</div>
         <h2 class="section-title">What I work with</h2>
-        <p class="section-desc">Years of pushing code across the blockchain and full-stack spectrum.</p>
+        <p class="section-desc">Pushing code across the blockchain and full-stack spectrum.</p>
         <div class="exp-list">
           <div class="exp-item">
-            <div class="exp-badge">⛓</div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
             <div class="exp-info">
-              <h4>Blockchain &amp; Smart Contracts</h4>
-              <p>Solidity, EVM, DeFi protocols, on-chain tooling &amp; automation</p>
+              <h4>Blockchain and Smart Contracts</h4>
+              <p>Solidity, EVM, DeFi protocols, on-chain tooling and automation</p>
             </div>
             <span class="exp-years">core focus</span>
           </div>
           <div class="exp-item">
-            <div class="exp-badge">⚡</div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
             <div class="exp-info">
               <h4>TypeScript / Node.js</h4>
               <p>Backend APIs, GitHub Apps, webhook processors, real-time pipelines</p>
@@ -457,23 +410,38 @@
             <span class="exp-years">daily driver</span>
           </div>
           <div class="exp-item">
-            <div class="exp-badge">⚛️</div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
+              </svg>
+            </div>
             <div class="exp-info">
-              <h4>React &amp; Frontend</h4>
-              <p>React, Vite, Tailwind — clean UIs that get out of the way</p>
+              <h4>React and Frontend</h4>
+              <p>React, Vite, Tailwind. Clean UIs that get out of the way</p>
             </div>
             <span class="exp-years">as needed</span>
           </div>
           <div class="exp-item">
-            <div class="exp-badge">🧠</div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
+            </div>
             <div class="exp-info">
-              <h4>AI &amp; LLM Integration</h4>
-              <p>Claude, GPT-4o, Runway — building useful products on top of foundation models</p>
+              <h4>AI and LLM Integration</h4>
+              <p>Claude, GPT-4o, Runway. Building useful products on top of foundation models</p>
             </div>
             <span class="exp-years">current</span>
           </div>
           <div class="exp-item">
-            <div class="exp-badge">🗄️</div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
             <div class="exp-info">
               <h4>Infrastructure</h4>
               <p>PostgreSQL, GCS, Docker, GitHub Actions, deployment pipelines</p>
@@ -483,21 +451,19 @@
         </div>
       </section>
 
-      <!-- Projects -->
       <section id="projects">
         <div class="section-label">// featured project</div>
         <h2 class="section-title">What I've shipped</h2>
-        <p class="section-desc">Things I've built and deployed into the wild.</p>
+        <p class="section-desc">Things built and deployed into the wild.</p>
 
         <div class="project-card">
-          <div class="project-header">
-            <div>
-              <div class="project-badge">🤖 live</div>
-            </div>
+          <div class="project-badge">
+            <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+            live
           </div>
           <h3>GitSlop Bot</h3>
           <p>
-            A GitHub App bot that listens for <code style="font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">@gitslopbot</code> mentions in Issues, PRs, and Discussions — then uses Claude to design a brainrot Pixar-style meme, generates it with GPT-image-1, animates it with Runway Gen3 Turbo, and posts a two-step response back to the thread. All automatically.
+            A GitHub App bot that listens for <code style="font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:4px;">@gitslopbot</code> mentions in Issues, PRs, and Discussions. Uses Claude to design a brainrot Pixar-style meme, generates it with GPT-image-1, animates it with Runway Gen3 Turbo, and posts a two-step response back to the thread. All automatically.
           </p>
           <div class="project-tech">
             <span class="tech-pill">Claude 3.7</span>
@@ -509,7 +475,10 @@
             <span class="tech-pill">React</span>
           </div>
           <a href="https://codes-son.github.io/gitslop/" class="btn-primary" target="_blank">
-            View Gallery →
+            View Gallery
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
           </a>
         </div>
       </section>
@@ -521,7 +490,7 @@
     <div class="container">
       <p>
         <a href="https://github.com/codes-son" target="_blank">github.com/codes-son</a>
-        &nbsp;·&nbsp;
+        <span class="sep">·</span>
         Built by son
       </p>
     </div>
